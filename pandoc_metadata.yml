@@ -1,0 +1,21 @@
+---
+title: Teleseer Splunk/Elasticsearch Interoperability Report
+subtitle: CS-TR-2025-0001
+author: Cyberspatial, Inc.
+subject: "Teleseer"
+keywords: [data,cyber,mapping,splunk,elasticsearch,siem,ELK]
+language: en-US
+cover-image: img/book-cover.png
+lof: false
+date: 31 MAR 2025
+lof-own-page: false
+toc-own-page: true
+titlepage: true
+titlepage-background: backgrounds/background20.pdf
+titlepage-text-color: "333333"
+titlepage-rule-color: "00737C"
+papersize: letter
+#prepend-titlepage: img/book-cover.pdf
+colorlinks: true
+listings: true
+---

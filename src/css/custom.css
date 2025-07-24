@@ -1,0 +1,47 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2a3b8f; /* Dark royal blue */
+  --ifm-color-primary-dark: #232f78; /* Darker royal blue */
+  --ifm-color-primary-darker: #1d275f; /* Even darker royal blue */
+  --ifm-color-primary-darkest: #171f4d; /* Darkest royal blue */
+  --ifm-color-primary-light: #3549a3; /* Lighter royal blue */
+  --ifm-color-primary-lighter: #3f56b8; /* Even lighter royal blue */
+  --ifm-color-primary-lightest: #4a64cd; /* Lightest royal blue */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(42, 59, 143, 0.1); /* Light royal blue background */ 
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #4a64cd; /* Bright royal blue */
+  --ifm-color-primary-dark: #3f56b8; /* Slightly darker bright royal blue */
+  --ifm-color-primary-darker: #3549a3; /* Darker shade */
+  --ifm-color-primary-darkest: #2a3b8f; /* Base dark royal blue */
+  --ifm-color-primary-light: #5a75e0; /* Lighter bright royal blue */
+  --ifm-color-primary-lighter: #6a86f3; /* Even lighter bright royal blue */
+  --ifm-color-primary-lightest: #7a97ff; /* Lightest bright royal blue */
+  --docusaurus-highlighted-code-line-bg: rgba(42, 59, 143, 0.3); /* Brighter royal blue background */
+  --docsearch-text-color: #ffffff !important;
+}
+
+[data-theme='light'] .DocSearch-Button-Placeholder  {
+  color:#f4f4f4 !important;  
+}
+
+[data-theme='dark'] .DocSearch-Button-Placeholder {
+  color:#6b6b6b !important;  
+}
+
+[data-theme='light'] .DocSearch-Button-Keys  {
+  color:#f4f4f4 !important;  
+}
+
+[data-theme='dark'] .DocSearch-Button-Keys {
+  color:#6b6b6b !important;  
+}
