@@ -18,11 +18,9 @@ jobs:
 
       - name: Install pandoc-crossref
         run: |
-          # Get latest release info
+          sudo apt-get install -y jq
           CROSSREF_URL=$(curl -s https://api.github.com/repos/lierdakil/pandoc-crossref/releases/latest \
-            | grep browser_download_url \
-            | grep Linux.tar.gz \
-            | cut -d '"' -f 4)
+            | jq -r '.assets[] | select(.name | test("Linux.*tar.gz$")) | .browser_download_url')
           echo "Downloading pandoc-crossref from $CROSSREF_URL"
           curl -L $CROSSREF_URL -o pandoc-crossref.tar.gz
           tar -xzf pandoc-crossref.tar.gz
