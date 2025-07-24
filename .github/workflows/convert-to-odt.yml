@@ -16,6 +16,18 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y pandoc pandoc-crossref lua5.3
 
+      - name: Install pandoc-crossref
+        run: |
+          CROSSREF_URL=$(curl -s https://api.github.com/repos/lierdakil/pandoc-crossref/releases/latest \
+            | grep browser_download_url \
+            | grep Linux.tar.gz
+            | cut -d '"' -f 4)
+          echo "Downloading pandoc-crossref.tar.gz"
+          curl -L $CROSSREF_URL -o pandoc-crossref.tar.gz
+          tar -xzf pandoc-crossref.tar.gz
+          sudo mv pandoc-crossref /usr/local/bin
+          pandoc-crossref --version
+
       - name: Create build directory
         run: mkdir -p build/odt
 
