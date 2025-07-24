@@ -14,7 +14,7 @@ jobs:
       - name: Install Pandoc
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc pandoc-crossref lua5.3
+          sudo apt-get install -y pandoc lua5.3
 
       - name: Install pandoc-crossref
         run: |
