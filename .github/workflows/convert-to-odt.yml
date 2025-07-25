@@ -50,7 +50,7 @@ jobs:
             --toc -N \
             --listings \
             --filter pandoc-crossref \
-            --lua-filter=pagebrake.lua
+            --lua-filter=pagebreak.lua
             -o build\odt\teleseer_interoperability_output.odt \
             pandoc_metadata.yml \
             ${PWD}/docs/*.md
