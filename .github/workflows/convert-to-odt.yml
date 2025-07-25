@@ -10,11 +10,17 @@ jobs:
     steps: 
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Install Pandoc 3.7
+        run: |
+          wget https://github.com/jgm/pandoc/releases/download/3.7/pandoc-3.7-1-amd64.deb
+          sudo dpkg -i pandoc-3.7-1-amd64.deb
+          pandoc --version
     
-      - name: Install Pandoc
+      - name: Install Lua
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc lua5.3
+          sudo apt-get install -y lua5.3
 
       - name: Install pandoc-crossref
         run: |
@@ -44,7 +50,7 @@ jobs:
             --toc -N \
             --listings \
             --filter pandoc-crossref \
-            --lua-filter=pagebreake.lua
+            --lua-filter=pagebrake.lua
             -o build\odt\teleseer_interoperability_output.odt \
             pandoc_metadata.yml \
             ${PWD}/docs/*.md
