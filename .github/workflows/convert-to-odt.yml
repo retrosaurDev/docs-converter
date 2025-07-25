@@ -18,17 +18,14 @@ jobs:
 
       - name: Install pandoc-crossref
         run: |
-          sudo apt-get install -y jq
-          CROSSREF_URL=$(curl -s https://api.github.com/repos/lierdakil/pandoc-crossref/releases/latest \
-            | jq -r '.assets[] | select(.name | test("linux.*amd64.*tar.gz$")) | .browser_download_url')
-          if [ -z "$CROSSREF_URL" ]; then
-            echo "Falling back to any Linux tar.gz asset..."
-            CROSSREF_URL=$(curl -s https://api.github.com/repos/lierdakil/pandoc-crossref/releases/latest \
-              | jq -r '.assets[] | select(.name | test("Linux.*tar.gz$")) | .browser_download_url')
-          fi
-          echo "Downloading pandoc-crossref from $CROSSREF_URL"
-          curl -L "$CROSSREF_URL" -o pandoc-crossref.tar.gz
-          tar -xzf pandoc-crossref.tar.gz
+          # Use a pinned version to ensure stability
+          VERSION="0.3.17.0" # can update later if needed
+          URL="https://github.com/jgm/pandoc/releases/download/3.7.0.2/pandoc-3.7.0.2-linux-amd64.tar.gz"
+
+          echo "Downloading pandoc-crossref v$VERSION from $URL"
+          curl -L "$URL" -o pandoc-crossref.zip
+          sudo apt-get install -y unzip
+          unzip pandoc-crossref.zip
           sudo mv pandoc-crossref /usr/local/bin/
           pandoc-crossref --version
 
