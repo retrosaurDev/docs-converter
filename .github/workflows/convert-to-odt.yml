@@ -20,7 +20,7 @@ jobs:
         run: |
           # Use a pinned version to ensure stability
           VERSION="0.3.17.0" # can update later if needed
-          URL="https://github.com/jgm/pandoc/releases/download/3.7.0.2/pandoc-3.7.0.2-linux-amd64.tar.gz"
+          URL="https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.20/pandoc-crossref-Linux-X64.tar.xz"
 
           echo "Downloading pandoc-crossref v$VERSION from $URL"
           curl -L "$URL" -o pandoc-crossref.zip
