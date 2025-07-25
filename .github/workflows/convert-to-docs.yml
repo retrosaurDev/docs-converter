@@ -1,4 +1,4 @@
-name: Build ODT
+name: Build ODT and DOCX
 
 on:
   workflow_dispatch:
@@ -54,7 +54,21 @@ jobs:
             -o build/odt/teleseer_interoperability_output.odt \
             pandoc_metadata.yml \
             ${PWD}/docs/*.md
-
+      
+      - name: Generate DOCX
+        run: |
+          pandoc \
+            --from markdown \
+            --resource-path="${PWD}/docs" \
+            --toc -N \
+            --listings \
+            --filter pandoc-crossref \
+            --lua-filter=pagebreak.lua \
+            # --reference-doc=template.docx \
+            -o build/docx/teleseer_interoperability_output.docx \
+            pandoc_metadata.yml \
+            ${PWD}/docs/*.md
+      
       - name: Upload as artifact
         uses: actions/upload-artifact@v4
         with:
