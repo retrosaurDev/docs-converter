@@ -46,12 +46,12 @@ jobs:
         run: |
           pandoc \
             --from markdown\
-            --resource-path="${PWD}\docs" \
+            --resource-path="${PWD}/docs" \
             --toc -N \
             --listings \
             --filter pandoc-crossref \
             --lua-filter=pagebreak.lua \
-            -o build\odt\teleseer_interoperability_output.odt \
+            -o build/odt/teleseer_interoperability_output.odt \
             pandoc_metadata.yml \
             ${PWD}/docs/*.md
 
